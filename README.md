@@ -1,93 +1,37 @@
-# Weather App Template
+# Battleship Game
 
-> **This is a GitHub Template Repository** — click **Use this template** to begin.
-
----
-
-## Features
-
-* Modern **ES6+** JavaScript with **Webpack 5** bundling
-* **Development** and **production** build configurations
-* Live-reloading dev server (`webpack-dev-server`)
-* **Prettier** for code formatting and **ESLint** for linting
-* Supports CSS imports and HTML asset injection via **HTMLWebpackPlugin**
+> A TDD‐driven JavaScript implementation of the classic Battleship game.
 
 ---
 
-## Prerequisites
+## 🎯 Project Overview
 
-* [Node.js](https://nodejs.org/) >=14.x
-* [npm](https://www.npmjs.com/) (or Yarn)
+You will build a fully playable Battleship game in JavaScript using Test-Driven Development (TDD). Your code will expose a clean API for:
 
----
+- **Ship** objects (length, hits, sunk status)  
+- **Gameboard** objects (place ships, receive attacks, track misses, all-sunk check)  
+- **Player** objects (human vs. computer, own gameboard, take turns, random legal moves)  
+- **Controller/UI** module (drive game flow, render boards, handle clicks, end‐game logic)
 
-## Getting Started
-
-1. **Create a new repository from this template** on GitHub (click *Use this template*).
-2. **Clone** your new repo:
-
-   ```bash
-   git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPO>.git
-   cd <YOUR-REPO>
-   ```
-3. **Install** dependencies:
-
-   ```bash
-   npm install
-   ```
-4. **Run** the development server:
-
-   ```bash
-   npm start
-   ```
-
-   The app will open at [http://localhost:8080](http://localhost:8080) with live-reload.
-5. **Build** for production:
-
-   ```bash
-   npm run build
-   ```
-
-   The optimized files will be output to the `dist/` folder.
+You will **not** test any DOM rendering—focus on isolating business logic in pure modules, then wire up your UI later.
 
 ---
 
-## Available Scripts
+## 🚀 Getting Started
 
-Below are the scripts provided in `package.json` for common tasks:
+### Prerequisites
 
-| Command              | Description                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ |
-| `npm run clean`      | Remove the `dist/` folder to start fresh                                       |
-| `npm run prebuild`   | Run `clean` automatically before building                                      |
-| `npm run build:dev`  | Build in development mode (unminified, source maps)                            |
-| `npm run build:prod` | Build in production mode (optimized, minified)                                 |
-| `npm run build`      | Alias for `npm run build:prod`                                                 |
-| `npm start`          | Build (dev) and launch the live-reload dev server                              |
-| `npm run lint`       | Run ESLint on `src/` and automatically fix linting errors                      |
-| `npm run format`     | Run Prettier to format all source files (`.js`, `.jsx`, `.css`, `.html`, etc.) |
+- **Node.js** ≥14.x  
+- **npm** (or Yarn)  
+- **Git** (for version control & Husky/Commitizen)
 
----
+### 1. Clone Your Template
 
-## Project Structure
+git clone https://github.com/<YOUR-USERNAME>/<YOUR-BATTLESHIP-REPO>.git
+cd <YOUR-BATTLESHIP-REPO>
 
-```
-├── dist/                # Production build output
-├── node_modules/        # npm dependencies
-├── src/                 # Source files
-│   ├── index.js         # Main entry point
-│   ├── index.html       # HTML template
-│   └── style.css        # Stylesheet
-├── webpack.common.js    # Shared Webpack config
-├── webpack.dev.js       # Development config
-├── webpack.prod.js      # Production config
-├── .eslintrc.json       # ESLint configuration
-├── .prettierrc          # Prettier configuration
-└── package.json         # NPM scripts & dependencies
-```
+### 2. Install Dependencies
+npm install
 
----
-
-## License
-
-This project is licensed under the [ISC License](LICENSE).
+### 3. Run Tests
+npm test
