@@ -56,15 +56,48 @@ export default class Gameboard{
 
         /* verifies that ship coordinates span distance equal to ship length */
         if (Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2)) !== ship.length){
-            throw new Error('Ship coordinates must equal ship legnth');
+            throw new Error('Ship coordinates must equal ship length');
         }
         
         this.ships.push([ship, start, end]);
 
     }
 
-    receiveAttack() {
+    receiveAttack(x, y) {
+
+        /* verifies there is valid, integer input */
+        if (x === null || y === null || !Number.isInteger(x) || !Number.isInteger(y)){
+            throw new Error('Input valid x,y integer coordinates');
+        }
+
+        /* verifies attack on board */
+        if (x < 0 || y < 0 || x > this.size || y > this.size){
+            throw new Error('Input valid x,y coordinates on board');
+        };
+
+        /* checks whether ship was hit and updates hit count */
+        for (const element of this.ships){
+            let isShipVertical = (element[1][0] === element[2][0]);
+            if (isShipVertical){
+                let xCoordMatch = (x === element[1][0]);
+                let yCoordMatch = (y >= Math.min(element[1][1], element[2][1]) && y <= Math.max(element[1][1], element[2][1]));
+                if (xCoordMatch && yCoordMatch){
+                    element[0].hit();
+                    return true;
+                }
+            }else{
+                let xCoordMatch = (x >= Math.min(element[1][0], element[2][0]) && x <= Math.max(element[1][0], element[2][0]));
+                let yCoordMatch = (y === element[1][1]);
+                if (xCoordMatch && yCoordMatch){
+                    element[0].hit();
+                    return true;
+                }
+            }
+        };
         
+        this.missedAttacks.push([x, y]);
+        return false;
+
     }
 
 
