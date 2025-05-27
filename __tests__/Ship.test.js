@@ -1,10 +1,10 @@
 import Ship from '../src/Ship.js';
 
 /* Ship Constructor */
-describe('Ship Constructor', () => {
+describe('new Ship()', () => {
 
   /* Empty Ship */
-  describe('Empty Ship', () => {
+  describe('new Ship({})', () => {
     let ship;
 
     beforeEach(() => {
@@ -25,7 +25,7 @@ describe('Ship Constructor', () => {
   });
 
   /* Nonempty Ship */
-  describe('Nonempty Ship', () => {
+  describe('new Ship({length: 2, timesHit: 3, sunk: true}', () => {
     let ship;
 
     beforeEach(() => {
@@ -47,7 +47,7 @@ describe('Ship Constructor', () => {
 });
 
 /* Ship Hit */
-describe('Ship Hit', () => {
+describe('Ship.hit()', () => {
 
   let ship;
 
@@ -55,16 +55,39 @@ describe('Ship Hit', () => {
     ship = new Ship({length: 4, timesHit: 0, sunk: false});
   });
 
-  test('Checks Hit', () => {
+  test('Checks 1 hit', () => {
     ship.hit();
     expect(ship.timesHit).toBe(1);
   });
 
-  test('Checks Hit', () => {
+  test('Checks 2 hits', () => {
     ship.hit();
     ship.hit();
     expect(ship.timesHit).toBe(2);
   });
 
 });
+
+/* Ship Sunk */
+describe('Ship.isSunk()', () => {
+
+  let ship;
+
+  /* Ship length > times hit */
+  describe('Ship.length > Ship.timesHit', () => {
+
+    beforeEach(() => {
+      ship = new Ship({length: 4, timesHit: 3, sunk: false});
+    });
+
+    test('returns false', ()=> {
+      expect(ship.isSunk()).toBe(false);
+    });
+
+  });
+
+});
+
+
+
 
