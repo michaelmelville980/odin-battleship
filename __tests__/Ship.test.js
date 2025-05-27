@@ -86,6 +86,19 @@ describe('Ship.isSunk()', () => {
 
   });
 
+   /* Ship length > times hit */
+  describe('Ship.length = Ship.timesHit', () => {
+
+    beforeEach(() => {
+      ship = new Ship({length: 4, timesHit: 4, sunk: false});
+    });
+
+    test('returns true', ()=> {
+      expect(ship.isSunk()).toBe(true);
+    });
+
+  });
+
 });
 
 
