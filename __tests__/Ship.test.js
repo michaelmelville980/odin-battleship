@@ -25,7 +25,7 @@ describe('new Ship()', () => {
   });
 
   /* Nonempty Ship */
-  describe('new Ship({length: 2, timesHit: 3, sunk: true}', () => {
+  describe('new Ship(2)', () => {
     let ship;
 
     beforeEach(() => {
