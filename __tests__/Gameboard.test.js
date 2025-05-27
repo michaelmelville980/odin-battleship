@@ -153,3 +153,50 @@ describe('receiveAttack(x,y) method', () => {
     expect(gameboard.ships[0][0].timesHit).toEqual(2);
   });
 });
+
+/* add areAllSunk method */
+describe('areAllSunk() method', () => {
+
+    describe('all are sunk', () => {
+
+        let gameboard;
+
+        beforeEach(() => {
+            gameboard = new Gameboard(10);
+            let shipOne = new Ship(1);
+            shipOne.timesHit = 2;
+            let shipTwo = new Ship(1);
+            shipTwo.timesHit = 2;
+            gameboard.addShip(shipOne, [0,0], [1,0]);
+            gameboard.addShip(shipTwo, [2,0], [3,0]);
+        });
+
+        test('all sunk', () => {
+            expect(gameboard.areAllSunk()).toEqual(true);
+        });
+
+
+ 
+    });
+
+    describe('all are not sunk', () => {
+
+        let gameboard;
+
+        beforeEach(() => {
+            gameboard = new Gameboard(10);
+            let shipOne = new Ship(1);
+            shipOne.timesHit = 1;
+            let shipTwo = new Ship(1);
+            shipTwo.timesHit = 0;
+            gameboard.addShip(shipOne, [0,0], [1,0]);
+            gameboard.addShip(shipTwo, [2,0], [3,0]);
+        });
+
+        test('all sunk', () => {
+            expect(gameboard.areAllSunk()).toEqual(false);
+        });
+ 
+    });
+
+});
