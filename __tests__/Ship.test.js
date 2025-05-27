@@ -4,11 +4,11 @@ import Ship from '../src/Ship.js';
 describe('new Ship()', () => {
 
   /* Empty Ship */
-  describe('new Ship({})', () => {
+  describe('new Ship()', () => {
     let ship;
 
     beforeEach(() => {
-      ship = new Ship({});
+      ship = new Ship();
     });
 
     test('Checks length', () => {
@@ -29,7 +29,9 @@ describe('new Ship()', () => {
     let ship;
 
     beforeEach(() => {
-      ship = new Ship({ length: 2, timesHit: 3, sunk: true });
+      ship = new Ship(2);
+      ship.timesHit = 3;
+      ship.sunk = true;
     });
 
     test('Checks length', () => {
@@ -52,7 +54,7 @@ describe('Ship.hit()', () => {
   let ship;
 
   beforeEach(() => {
-    ship = new Ship({length: 4, timesHit: 0, sunk: false});
+    ship = new Ship(4);
   });
 
   test('Checks 1 hit', () => {
@@ -77,7 +79,8 @@ describe('Ship.isSunk()', () => {
   describe('Ship.length > Ship.timesHit', () => {
 
     beforeEach(() => {
-      ship = new Ship({length: 4, timesHit: 3, sunk: false});
+      ship = new Ship(4);
+      ship.timesHit = 3;
     });
 
     test('returns false', ()=> {
@@ -90,11 +93,13 @@ describe('Ship.isSunk()', () => {
   describe('Ship.length = Ship.timesHit', () => {
 
     beforeEach(() => {
-      ship = new Ship({length: 4, timesHit: 4, sunk: false});
+      ship = new Ship(4);
+      ship.timesHit = 4;
     });
 
     test('returns true', ()=> {
       expect(ship.isSunk()).toBe(true);
+      expect(ship.sunk).toBe(true);
     });
 
   });
