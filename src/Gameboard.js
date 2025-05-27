@@ -100,6 +100,17 @@ export default class Gameboard{
 
     }
 
+    areAllSunk(){
+        let allSunk = true;
+        for (const entry of this.ships){
+            if (!entry[0].isSunk()){
+                allSunk = false;
+                return allSunk;
+            }
+        }
+        return allSunk;
+    }
+
 
     
 
