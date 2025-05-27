@@ -1,49 +1,43 @@
 import Ship from '../src/Ship.js';
 
+describe('Ship Constructor', () => {
+  describe('Empty Ship', () => {
+    let ship;
 
-describe("Empty Ship Initialization", () => {
+    beforeEach(() => {
+      ship = new Ship({});
+    });
 
-  let ship;
+    test('Checks length', () => {
+      expect(ship.length).toBe(0);
+    });
 
-  beforeEach(() => {
-    ship = new Ship({});
-  })
+    test('Checks hits', () => {
+      expect(ship.timesHit).toBe(0);
+    });
 
-  test('Checks length', () => {
-    expect(ship.length).toBe(0);
+    test('Checks sunk', () => {
+      expect(ship.sunk).toBe(false);
+    });
   });
 
-  test('Checks hits', () => {
-    expect(ship.timesHit).toBe(0);
+  describe('Nonempty Ship', () => {
+    let ship;
+
+    beforeEach(() => {
+      ship = new Ship({ length: 2, timesHit: 3, sunk: true });
+    });
+
+    test('Checks length', () => {
+      expect(ship.length).toBe(2);
+    });
+
+    test('Checks hits', () => {
+      expect(ship.timesHit).toBe(3);
+    });
+
+    test('Checks sunk', () => {
+      expect(ship.sunk).toBe(true);
+    });
   });
-
-  test('Checks sunk', () => {
-    expect(ship.sunk).toBe(false);
-  });
-
-})
-
-describe("Nonempty Ship Initialization", () => {
-
-  let ship;
-
-  beforeEach(() => {
-    ship = new Ship({length: 2, timesHit: 3, sunk: true});
-  })
-
-  test('Checks length', () => {
-    expect(ship.length).toBe(2);
-  });
-
-  test('Checks hits', () => {
-    expect(ship.timesHit).toBe(3);
-  });
-
-  test('Checks sunk', () => {
-    expect(ship.sunk).toBe(true);
-  });
-
-})
-
-
-
+});
