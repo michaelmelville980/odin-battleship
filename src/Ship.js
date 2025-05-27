@@ -5,7 +5,7 @@ export default class Ship {
 
   /* constructor */
   constructor(length = 1) {
-    if (length < MIN_SIZE) {
+    if (length < Ship.MIN_SIZE) {
       throw new Error('ship length must be >= 1');
     }
     this.length = length;
