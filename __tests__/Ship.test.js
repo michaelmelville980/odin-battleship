@@ -1,6 +1,9 @@
 import Ship from '../src/Ship.js';
 
+/* Ship Constructor */
 describe('Ship Constructor', () => {
+
+  /* Empty Ship */
   describe('Empty Ship', () => {
     let ship;
 
@@ -21,6 +24,7 @@ describe('Ship Constructor', () => {
     });
   });
 
+  /* Nonempty Ship */
   describe('Nonempty Ship', () => {
     let ship;
 
@@ -41,3 +45,20 @@ describe('Ship Constructor', () => {
     });
   });
 });
+
+/* Ship Hit */
+describe('Ship Constructor', () => {
+
+  let ship;
+
+  beforeEach(() => {
+    ship = new Ship({});
+  });
+
+  test('Checks Hit', () => {
+    ship.hit();
+    expect(ship.timesHit).toBe(1);
+  });
+   
+  });
+
