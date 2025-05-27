@@ -12,7 +12,7 @@ describe('new Ship()', () => {
     });
 
     test('Checks length', () => {
-      expect(ship.length).toBe(0);
+      expect(ship.length).toBe(1);
     });
 
     test('Checks hits', () => {
