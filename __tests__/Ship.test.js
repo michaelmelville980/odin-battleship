@@ -47,18 +47,24 @@ describe('Ship Constructor', () => {
 });
 
 /* Ship Hit */
-describe('Ship Constructor', () => {
+describe('Ship Hit', () => {
 
   let ship;
 
   beforeEach(() => {
-    ship = new Ship({});
+    ship = new Ship({length: 4, timesHit: 0, sunk: false});
   });
 
   test('Checks Hit', () => {
     ship.hit();
     expect(ship.timesHit).toBe(1);
   });
-   
+
+  test('Checks Hit', () => {
+    ship.hit();
+    ship.hit();
+    expect(ship.timesHit).toBe(2);
   });
+
+});
 
