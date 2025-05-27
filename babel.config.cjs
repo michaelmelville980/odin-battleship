@@ -4,8 +4,7 @@ module.exports = {
       "@babel/preset-env",
       {
         targets: { node: "current" },
-        // don’t transform import/export to CommonJS:
-        modules: false
+        modules: "auto"
       }
     ]
   ]

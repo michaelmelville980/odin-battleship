@@ -19,7 +19,7 @@
     "start": "npm run build:dev && webpack serve --config webpack.dev.js --open",
     "lint": "eslint \"src/**/*.{js,jsx}\" --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,css,html,md,json}\"",
-    "test": "jest --config jest.config.cjs",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "commit": "git-cz"
   },
   "config": {
