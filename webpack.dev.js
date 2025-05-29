@@ -1,8 +1,12 @@
 // webpack.dev.js
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
+import { merge } from 'webpack-merge';
+import common from './webpack.common.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: "development",
 
   // fast, detailed mapping back to source

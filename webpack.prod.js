@@ -1,11 +1,16 @@
 // webpack.prod.js
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
-const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+import { merge } from 'webpack-merge';
+import common from './webpack.common.js';
+import path from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-module.exports = merge(common, {
+
+export default merge(common, {
   mode: "production",
 
   // external source‑map (optional) or disable
