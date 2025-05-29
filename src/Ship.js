@@ -10,6 +10,7 @@ export default class Ship {
     }
     this.length = length;
     this.timesHit = 0;
+    this.locationsHit = [];
     this.sunk = false;
   }
 
