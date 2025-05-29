@@ -1,0 +1,68 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: system-ui;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+    box-sizing: border-box;    
+}
+
+#boards {
+  display: flex;                 
+  gap: 1rem;                    
+  width: 80%;                         
+  height: 60%;                  
+  margin: 2rem auto 0;                
+  padding: 1rem;                
+  border: 6px solid black;      
+  justify-content: center;       
+  align-items: center;  
+}
+
+#boards > div {
+    border: 2px solid black;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+    border: 1px solid black;
+}
+
+.missedAttack {
+    background-color: red;
+}
+
+.successfulAttack {
+    background-color: green;
+}
+
+#label {
+    display: flex;                 
+    gap: 22rem;                    
+    width: 80%;                                         
+    margin: 2rem auto 0;                
+    padding: 1rem;                      
+    justify-content: center;       
+    align-items: center;
+}
+
+
+
+h1 {
+    color: green;
+    font-size: 50px;
+}
+
+
+
