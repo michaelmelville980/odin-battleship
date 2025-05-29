@@ -13,8 +13,8 @@ export default class Gameboard{
         }
         this.size = size;
         this.ships = [];
-        this.successfulAttacks = [];
-        this.missedAttacks = [];
+        this.successfulAttacks = new Set();
+        this.missedAttacks = new Set();
         this.isAllSunk = false;
     }
 
@@ -84,7 +84,7 @@ export default class Gameboard{
                 let yCoordMatch = (y >= Math.min(element[1][1], element[2][1]) && y <= Math.max(element[1][1], element[2][1]));
                 if (xCoordMatch && yCoordMatch){
                     element[0].hit();
-                    this.successfulAttacks.push([x, y]);
+                    this.successfulAttacks.add(`${x},${y}`);
                     return true;
                 }
             }else{
@@ -92,13 +92,13 @@ export default class Gameboard{
                 let yCoordMatch = (y === element[1][1]);
                 if (xCoordMatch && yCoordMatch){
                     element[0].hit();
-                    this.successfulAttacks.push([x, y]);
+                    this.successfulAttacks.add(`${x},${y}`);
                     return true;
                 }
             }
         };
         
-        this.missedAttacks.push([x, y]);
+        this.missedAttacks.add(`${x},${y}`);
         return false;
 
     }
