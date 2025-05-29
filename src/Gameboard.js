@@ -13,6 +13,7 @@ export default class Gameboard{
         }
         this.size = size;
         this.ships = [];
+        this.successfulAttacks = [];
         this.missedAttacks = [];
         this.isAllSunk = false;
     }
@@ -83,7 +84,7 @@ export default class Gameboard{
                 let yCoordMatch = (y >= Math.min(element[1][1], element[2][1]) && y <= Math.max(element[1][1], element[2][1]));
                 if (xCoordMatch && yCoordMatch){
                     element[0].hit();
-                    element[0].locationsHit.push([x, y]);
+                    this.successfulAttacks.push([x, y]);
                     return true;
                 }
             }else{
@@ -91,7 +92,7 @@ export default class Gameboard{
                 let yCoordMatch = (y === element[1][1]);
                 if (xCoordMatch && yCoordMatch){
                     element[0].hit();
-                    element[0].locationsHit.push([x, y]);
+                    this.successfulAttacks.push([x, y]);
                     return true;
                 }
             }
